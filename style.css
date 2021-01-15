@@ -1,0 +1,126 @@
+/* ------ CSS3 - Honeycomb Button Animation ------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+
+    background-color: #fdd458;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fffae9' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/* 
+    background-color: #f7e8b8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23ffc30f' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+    background-color: #fdcf47;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23fdf7e3' fill-opacity='0.26' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+*/ 
+}
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-top: 70px;
+    color: white;
+    filter: drop-shadow(-1px 6px 3px rgba(102, 77, 2, 0.5));
+    /* font-family: 'Margarine', cursive;  */
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+}
+.container {
+    width: 200px;
+    position: relative;
+    margin: 50px auto;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+}
+.button {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(-1px 6px 3px rgba(102, 77, 2, 0.5));
+}
+.button:nth-of-type(2){
+    top: -40px;
+    left: 100px;
+}
+.button:nth-of-type(3){
+    top: -80px;
+    left: 0px;
+}
+.button:nth-of-type(4){
+    top: -120px;
+    left: 100px;
+}
+.button p {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    color: white;
+    z-index: 10;
+    font-size: 40px;
+    transition: .3s cubic-bezier(0,2.17,.83,1.36) .3s;
+}
+.button:hover p {
+    transform: translate(-50%, -50%) rotate(-27deg);
+    font-size: 0;
+    transition: .2s;
+    opacity: 0;
+}
+.button::before {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: #ffc30f;
+    position: absolute;
+    top: 0; left: 0;
+    clip-path: polygon(0 25%, 50% 0, 50% 100%, 0 75%);
+    transition: clip-path .2s .5s, width .2s .2s, left .2s .2s;
+}
+.button:nth-child(odd):hover::before {
+    width: 0;
+    left: 100px;
+    transition: clip-path .2s, width .2s .2s, left .2s .2s;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+.button::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: #ffc30f;
+    position: absolute;
+    top: 0; left: -1px;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%);
+    transition: clip-path .2s .5s, width .2s .2s, left .2s .2s;
+}
+.button:nth-child(even):hover::after {
+    width: 0;
+    left: 99px;
+    transition: clip-path .2s, width .2s .2s, left .2s .2s;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+.button span {
+    font-size: 252px;
+    color: #ffc30f;
+    position: absolute;
+    left: 100px;
+    height: 200px;
+    display: block;
+    line-height: 200px;
+    transform: rotateY(90deg);
+    transform-origin: left;
+    transition: .5s;
+    overflow: hidden;
+}
+.button:nth-child(odd) span {
+    right: 100px;
+    left: auto;
+    transform-origin: right;
+}
+.button:hover span {
+    width: auto;
+    transition: .5s .2s;
+    transform: rotateY(0);
+}
+
